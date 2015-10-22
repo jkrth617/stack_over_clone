@@ -3,4 +3,6 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :question_tags, dependent: :destroy
   has_many :votes, as: :voteable, dependent: :destroy
+
+  validates_presence_of :title, :body, :user
 end
