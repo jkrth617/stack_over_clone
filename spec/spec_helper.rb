@@ -11,7 +11,6 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   config.include Capybara::DSL
-  config.include AuthenticationHelpers
   config.mock_with :rspec
   config.infer_spec_type_from_file_location!
 
