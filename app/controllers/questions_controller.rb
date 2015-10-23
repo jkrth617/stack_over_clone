@@ -12,10 +12,10 @@ class QuestionsController < ApplicationController
 
   def create
     new_q = Question.new(valid_params)
-    binding.pry
     if current_user
       if new_q.valid?
         current_user.questions << new_q
+        binding.pry
         redirect_to questions_path
       else
         flash[:errors] = new_q.errors.messages.values.join("\n")
