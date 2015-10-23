@@ -1,5 +1,5 @@
-<%= button_to "⟰", questions_vote_path, params: {question_id: "1", vote_direction: 1} %>
-<%= button_to "⤋", questions_vote_path, params: {question_id: "1", vote_direction: 1} %>
+<%= button_to "⟰", questions_vote_path, params: {question_id: "1", vote_direction: 1}, class: 'vote-button'%>
+<%= button_to "⤋", questions_vote_path, params: {question_id: "1", vote_direction: -1}, class: 'vote-button'%>
 
 <% @questions.each do |q| %>
   <%= q.title %>
