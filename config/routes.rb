@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :answers
   end
 
-  get '/recent' => 'answers#recent'
+  get '/recent' => 'questions#recent'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy', :via => :delete

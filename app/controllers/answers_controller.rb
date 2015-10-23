@@ -27,10 +27,6 @@ class AnswersController < ApplicationController
       end
   end
 
-  def recent
-    @answers = Answer.by_recency
-  end
-
   def valid_params
     params.require(:answer).permit(:body, :user_id, :question_id)
   end

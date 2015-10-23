@@ -1,8 +1,0 @@
-<h2> Recently A Questions </h2>
-<ul>
-<% @answers.each do |answer|%>
-   <li> <%= link_to answer.question.title, question_path(answer.question) %></li>
-  <ul><li> Recently Answered by <%= answer.user.username %></li></ul>
-<% end %>
-</ul>
-
