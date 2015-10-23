@@ -3,6 +3,13 @@
 
 <h2><%= @question.answers.count %> Answers</h2>
 
+<h5>
+  score: <%= @question.total_points %>
+  <div class = "vote-button"> <%= button_to "⟰", questions_vote_path, params: {question_id: @question.id, vote_direction: 1}%></div>
+  <div class  = "vote-button"> <%= button_to "⤋", questions_vote_path, params: {question_id: @question.id, vote_direction: -1}%></div>
+</h5>
+
+
 <% @question.answers.each do |answer| %>
   <div><%= answer.body %></div>
   <div><%= answer.created_at %></div>
