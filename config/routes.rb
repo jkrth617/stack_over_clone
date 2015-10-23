@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'questions#index'
-  resources :users
+
+  resources :users, except: [:destroy]
   resources :questions, except: [:destroy] do
     resources :answers
   end
@@ -9,7 +10,9 @@ Rails.application.routes.draw do
   resources :votes, only: [:new, :create], path: '/:obj_type/:obj_id/votes'
   resources :questions, except: [:destroy]
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy', :via => :delete
+  get 'register' => 'users#new', as: 'register'
+  post 'register' => 'users#create'
+  get 'login' => 'sessions#login_form'#, as: 'login'
+  post 'login' => 'sessions#login'
+  get 'logout' => 'sessions#logout', as: 'logout'
 end

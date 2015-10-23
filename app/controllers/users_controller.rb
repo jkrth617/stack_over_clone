@@ -9,8 +9,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      flash[:error] = "Couldn't register user" #could change this to use flash errors.full_messages
-      redirect_to new_user_path
+      flash[:errors] = user.errors.full_messages.join("\n") #could change this to use flash errors.full_messages
+      redirect_to register_path
     end
   end
 
