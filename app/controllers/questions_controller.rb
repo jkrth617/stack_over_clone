@@ -14,9 +14,9 @@ class QuestionsController < ApplicationController
   def create
     new_q = Question.new(valid_params)
     if session[:user_id]
-      tag = Tag.new(tag_params)
       current_user.questions << new_q
-      new_q.tags << tag
+      new_q.tags << make_tags
+      binding.pry
       redirect_to root_path
     else
       flash[:errors] = "You must be logged in to create questions."
@@ -58,4 +58,9 @@ class QuestionsController < ApplicationController
   def tag_params
     params.require(:tag).permit(:description)
   end
+
+  def make_tags
+    tag_params[:description].split.map { |desc| Tag.where(description: desc).first_or_create }
+  end
+
 end
