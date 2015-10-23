@@ -29,14 +29,7 @@ class AnswersController < ApplicationController
 
   def vote
     parent_answer = Answer.find_by(id: params[:answer_id])
-    vote = Vote.new(user_id: session[:user_id], voteable: parent_answer, value: params[:vote_direction])
-    vote = vote.value_check
-    if vote.save
-      redirect_to :back
-    else
-      flash[:errors] = "your vote didn't process"
-      redirect_to :back
-    end
+    make_vote(parent_answer)
   end
 
   def valid_params
