@@ -9,4 +9,8 @@ class Answer < ActiveRecord::Base
     self.votes.sum(:value)
   end
 
+  def self.by_recency
+    order(updated_at: :desc)
+  end
+
 end
