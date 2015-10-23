@@ -37,4 +37,5 @@ class QuestionsController < ApplicationController
   def valid_params
     params.require(:question).permit(:title,:body)
   end
+
 end
