@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :questions, except: [:destroy] do
     resources :answers
   end
+  resources :votes, only: [:new, :create], path: '/:obj_type/:obj_id/votes'
+  resources :questions, except: [:destroy]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
