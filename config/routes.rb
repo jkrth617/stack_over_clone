@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#login'
   get 'logout' => 'sessions#logout', as: 'logout'
 
+  get '/recent' => 'questions#recent'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy', :via => :delete

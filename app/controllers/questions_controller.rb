@@ -38,6 +38,9 @@ class QuestionsController < ApplicationController
       flash[:errors] = "your vote didn't process"
       redirect_to :back
     end
+
+  def recent
+    @questions = Question.by_recency.limit(10)
   end
 
   def valid_params

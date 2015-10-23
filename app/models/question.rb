@@ -7,4 +7,9 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :title, :body
   validates_presence_of :user, message: "You must be logged in to create questions."
+
+  def self.by_recency
+    order(updated_at: :desc)
+  end
+
 end
