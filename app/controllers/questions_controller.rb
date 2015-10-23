@@ -41,7 +41,8 @@ class QuestionsController < ApplicationController
     if vote.save
       redirect_to :back
     else
-      "bad"
+      flash[:errors]
+      redirect_to :back
     end
   end
 
