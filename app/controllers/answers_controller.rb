@@ -27,6 +27,11 @@ class AnswersController < ApplicationController
       end
   end
 
+  def vote
+    parent_answer = Answer.find_by(id: params[:answer_id])
+    make_vote(parent_answer)
+  end
+
   def valid_params
     params.require(:answer).permit(:body, :user_id, :question_id)
   end

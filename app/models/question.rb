@@ -7,4 +7,9 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :title, :body
   validates_presence_of :user, message: "You must be logged in to create questions."
+
+  def total_points#really slow have the bd do this later
+    self.votes.sum(:value)
+  end
+
 end
