@@ -12,4 +12,12 @@ class Question < ActiveRecord::Base
     self.votes.sum(:value)
   end
 
+  def self.by_recency
+    order(updated_at: :desc)
+  end
+
+  def last_respondent
+    self.answers.last.user.username
+  end
+
 end
