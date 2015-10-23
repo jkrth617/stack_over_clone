@@ -40,6 +40,10 @@ class QuestionsController < ApplicationController
     @questions = Question.by_recency.limit(10)
   end
 
+  def recent
+    @questions = Question.by_recency.limit(10)
+  end
+
   def valid_params
     params.require(:question).permit(:title,:body)
   end
