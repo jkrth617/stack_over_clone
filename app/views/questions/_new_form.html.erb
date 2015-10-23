@@ -1,0 +1,6 @@
+<%= flash[:errors] %>
+<%= form_for @question do |f|%>
+  title:<%= f.text_field :title %>
+  body:<%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
