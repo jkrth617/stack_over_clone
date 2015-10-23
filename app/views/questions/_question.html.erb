@@ -1,7 +1,12 @@
-<div class = "vote-button"> <%= button_to "⟰", questions_vote_path, params: {question_id: "1", vote_direction: 1}%></div>
-<div class  = "vote-button"> <%= button_to "⤋", questions_vote_path, params: {question_id: "1", vote_direction: -1}%></div>
 
 <% @questions.each do |q| %>
-  <%= q.title %>
-  <%= q.body %>
+  <div class = "question-header">
+    <div class = "vote-button"> <%= button_to "⟰", questions_vote_path, params: {question_id: q.id, vote_direction: 1}%></div>
+    <div class  = "vote-button"> <%= button_to "⤋", questions_vote_path, params: {question_id: q.id, vote_direction: -1}%></div>
+    <%= q.total_points %>
+    <%= q.title %>
+  </div>
+  <div class = "question-content">
+    <%= q.body %>
+  </div>
 <% end %>
