@@ -3,8 +3,7 @@
 <% @questions.each do |question|%>
    <li><%= link_to question.title, question_path(question) %></li>
    <ul>
-  <li><%= question.last_respondent %></li>
-   <li><%= question.updated_at %></li>
+  <li>Last answered by <%= question.last_respondent %> on <%= question.updated_at %></li>
    </ul>
 <% end %>
 </ul>
