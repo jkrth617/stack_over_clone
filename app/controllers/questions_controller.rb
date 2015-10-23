@@ -36,7 +36,9 @@ class QuestionsController < ApplicationController
     make_vote(parent_question)
   end
 
-  private
+  def recent
+    @questions = Question.by_recency.limit(10)
+  end
 
   def valid_params
     params.require(:question).permit(:title,:body)
