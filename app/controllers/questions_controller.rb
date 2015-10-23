@@ -16,7 +16,6 @@ class QuestionsController < ApplicationController
     if session[:user_id]
       current_user.questions << new_q
       new_q.tags << make_tags
-      binding.pry
       redirect_to root_path
     else
       flash[:errors] = "You must be logged in to create questions."
