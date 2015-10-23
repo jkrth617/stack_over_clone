@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
 
   def make_vote(parent_obj)
     if session[:user_id]
-      vote = Vote.new(user_id: session[:user_id], voteable: parent_obj, value: params[:vote_direction])
-      vote = vote.value_check
+      vote = Vote.where(user_id: session[:user_id], voteable: parent_obj).first_or_initialize
+      vote.value_check(params[:vote_direction].to_i)
       if vote.save
         redirect_to :back
       else
