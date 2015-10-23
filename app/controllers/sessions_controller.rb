@@ -4,14 +4,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(username: session_params[:username])
+    if user.try(:authenticate, session_params[:password])
       session[:user_id] = user.id
-      flash[:message] = "Successfully logged in"
+      flash[:message] = "Successfully logged in!"
       redirect_to root_path
     else
-      flash.now.alert = "Mismatched username/password"
-      render :new
+      flash[:error] = "Mismatched username/password"
+      redirect_to login_path
     end
   end
 
@@ -19,5 +19,11 @@ class SessionsController < ApplicationController
     session.clear
     flash[:message] = "Successfully logged out"
     redirect_to root_path
+  end
+
+  private
+
+  def session_params
+    params.require(:session).permit(:username, :password)
   end
 end
