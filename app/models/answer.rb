@@ -7,6 +7,5 @@ class Answer < ActiveRecord::Base
 
   def total_points#really slow have the bd do this later
     self.votes.sum(:value)
-  end
 
 end
