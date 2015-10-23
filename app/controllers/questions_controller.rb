@@ -34,7 +34,20 @@ class QuestionsController < ApplicationController
   def update
   end
 
+  def vote
+    parent_question = Question.find_by(id: params[:question_id])
+    vote = Vote.new(user_id: session[:user_id], voteable: parent_question, value: params[:vote_direction])
+    vote = vote.value_check
+    if vote.save
+      redirect_to :back
+    else
+      flash[:errors] = "your vote didn't process"
+      redirect_to :back
+    end
+  end
+
   def valid_params
     params.require(:question).permit(:title,:body)
   end
+
 end
