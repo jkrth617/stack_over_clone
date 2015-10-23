@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
     if vote.save
       redirect_to :back
     else
-      flash[:errors]
+      flash[:errors] = "your vote didn't process"
       redirect_to :back
     end
   end
