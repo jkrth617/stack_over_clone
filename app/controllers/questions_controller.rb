@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     if session[:user_id]
       tag = Tag.new(tag_params)
       current_user.questions << new_q
-      current_user.questions.last.tags << tag
+      new_q.tags << tag
       redirect_to root_path
     else
       flash[:errors] = "You must be logged in to create questions."
@@ -33,7 +33,14 @@ class QuestionsController < ApplicationController
 
   def vote
     parent_question = Question.find_by(id: params[:question_id])
-    make_vote(parent_question)
+    vote = Vote.new(user_id: session[:user_id], voteable: parent_question, value: params[:vote_direction])
+    vote = vote.value_check
+    if vote.save
+      redirect_to :back
+    else
+      flash[:errors] = "your vote didn't process"
+      redirect_to :back
+    end
   end
 
   def recent
