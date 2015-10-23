@@ -35,9 +35,9 @@ class QuestionsController < ApplicationController
   end
 
   def vote
-    vote.new (user_id: session[:user_id], question_id: params[:question_id], value = params[:vote_direction])
-    #make this into a private method
-    vote.value_check#destructive thing that make vote either what it started at or if found the other vote
+    parent_question = Question.find_by(id: params[:question_id])
+    vote = Vote.new(user_id: session[:user_id], voteable: parent_question, value: params[:vote_direction])
+    vote = vote.value_check
     if vote.save
       redirect_to :back
     else
