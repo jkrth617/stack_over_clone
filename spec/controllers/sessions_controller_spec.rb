@@ -9,21 +9,10 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   context "#create" do
-    context "With valid credentials" do
-      let :credentials do
-        {:email => "bob@bob.com", username: "bob", password: "burgers" }
-      end
-     let :user do
-       FactoryGirl.create(:user, credentials)
-     end 
-
-     before :each do
-      post '/login', credentials
-     end
-
-     it 'creates a user session' do
-      session[:user_id].should == user.id 
-     end
+    let(:user) { FactoryGirl.create :user }
+    it 'redirects back to root after creating session' do
+      post :create, session: {:user => FactoryGirl.attributes_for(:user)}
+      expect(response).to redirect_to login_path
     end
-  end
+  end 
 end
