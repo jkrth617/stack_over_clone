@@ -1,0 +1,11 @@
+
+<h1><%= @question.title%>
+
+<h2><%= @question.answers.count %> Answers</h2>
+
+<% @question.answers.each do |answer| %>
+  <div><%= answer.body %></div>
+  <div><%= answer.created_at %></div>
+<% end %>
+
+<%= button_to "Have an Answer?", new_question_answer_path(@question), {method: "get"} %>
