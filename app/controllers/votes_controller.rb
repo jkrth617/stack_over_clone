@@ -7,11 +7,11 @@ post '/:obj_type/:obj_id/votes' do |parent_type, parent_id|
       vote.save
     else
       flash[:message] = "couldnt not find the object you wanted to vote on"
-      redirect '/'
+      redirect_to root_path and return
     end
   else
     flash[:message] = "must be signed in to vote"
-    redirect '/'
+    redirect_to root_path and return
   end
   redirect "/#{parent_type}/#{parent_id}"
 end
