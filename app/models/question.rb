@@ -12,4 +12,8 @@ class Question < ActiveRecord::Base
     order(updated_at: :desc)
   end
 
+  def last_respondent
+    self.answers.last.user.username
+  end
+
 end
