@@ -4,4 +4,9 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :voteable, dependent: :destroy
 
   validates_presence_of :body, :question_id ,:user_id
+
+  def total_points#really slow have the bd do this later
+    self.votes.sum(:value)
+  end
+
 end
