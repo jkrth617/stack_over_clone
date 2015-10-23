@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root 'questions#index' 
+  root 'questions#index'
 
   resources :users
-  resources :questions, except: [:destroy]
+  resources :questions, except: [:destroy] do
+    resources :answers
+  end
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
