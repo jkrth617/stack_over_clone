@@ -1,2 +1,2 @@
-<%= link_to 'new question', new_question_path %>
 <%= render 'question' %>
+<%= button_to "upvote", questions_vote_path, params: {question_id: "1", vote_direction: -1} %>
