@@ -34,6 +34,17 @@ class QuestionsController < ApplicationController
   def update
   end
 
+  def vote
+    vote.new (user_id: session[:user_id], question_id: params[:question_id], value = params[:vote_direction])
+    #make this into a private method
+    vote.value_check#destructive thing that make vote either what it started at or if found the other vote
+    if vote.save
+      redirect_to :back
+    else
+      "bad"
+    end
+  end
+
   def valid_params
     params.require(:question).permit(:title,:body)
   end
