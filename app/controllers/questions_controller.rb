@@ -12,15 +12,9 @@ class QuestionsController < ApplicationController
 
   def create
     new_q = Question.new(valid_params)
-    if current_user
-      if new_q.valid?
-        current_user.questions << new_q
-        binding.pry
-        redirect_to questions_path
-      else
-        flash[:errors] = new_q.errors.messages.values.join("\n")
-        redirect_to new_question_path
-      end
+    if session[:user_id]
+      current_user.questions << new_q
+      redirect_to questions_path
     else
       flash[:errors] = "You must be logged in to create questions."
       redirect_to new_question_path
