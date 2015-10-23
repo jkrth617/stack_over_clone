@@ -33,6 +33,8 @@ class QuestionsController < ApplicationController
     make_vote(parent_question)
   end
 
+  private
+
   def valid_params
     params.require(:question).permit(:title,:body)
   end
