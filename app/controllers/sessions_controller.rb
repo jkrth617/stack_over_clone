@@ -1,21 +1,20 @@
 class SessionsController < ApplicationController
-  def new
-    @user = User.new
+  def login_form
+    render 'sessions/new'
   end
-
-  def create
+  def login
     user = User.find_by(username: session_params[:username])
     if user.try(:authenticate, session_params[:password])
       session[:user_id] = user.id
       flash[:message] = "Successfully logged in!"
       redirect_to root_path
     else
-      flash[:error] = "Mismatched username/password"
+      flash[:errors] = "Mismatched username/password"
       redirect_to login_path
     end
   end
 
-  def destroy
+  def logout
     session.clear
     flash[:message] = "Successfully logged out"
     redirect_to root_path
