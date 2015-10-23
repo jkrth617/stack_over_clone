@@ -20,4 +20,10 @@ class SessionsController < ApplicationController
     flash[:message] = "Successfully logged out"
     redirect_to root_path
   end
+
+  private
+
+  def session_params
+    params.require(:session).permit(:username, :password, :email)
+  end
 end
