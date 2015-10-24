@@ -26,6 +26,7 @@ gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+  gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -34,7 +35,6 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'pry-rails'
-  gem 'faker'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
