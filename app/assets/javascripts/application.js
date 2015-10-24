@@ -17,9 +17,9 @@ $(document).on('ready', function(){
 
   $('.master-container').on('click','.vote-button', function(e){
     e.preventDefault();
-    var targetLocation = $(this).parent().find('.point-value');
+    var $targetLocation = $(this).parent().find('.point-value');
     var $targetForm = $(this).find('form');
-    var myData = $targetaFrom.serialize();
+    var myData = $targetForm.serialize();
     var myType = $targetForm.attr('method');
     var myUrl = $targetForm.attr('action');
     $.ajax({
@@ -27,9 +27,9 @@ $(document).on('ready', function(){
       method:myType,
       data:myData
     }).done(function(response){
-      targetLocation.html(response)
+      // debugger;
+      $targetLocation.html(response)
     }).fail(function(deffered){
-      debugger;
     })
   })
 
