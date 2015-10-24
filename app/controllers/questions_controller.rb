@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.order(id: :desc)
+    @questions = Question.by_recency
   end
 
   def edit
