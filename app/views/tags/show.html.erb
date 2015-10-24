@@ -5,23 +5,9 @@
     <%= link_to question.title, question_path(question) %>
     <div class ='master-container'>
   <h5>
+    <%= question.body %><br>
     score: <span class= 'point-value'><%= question.total_points %></span>
-    <div class = "vote-button"> <%= button_to "⤴", questions_vote_path, params: {question_id: question.id, vote_direction: 1}%></div>
-    <div class  = "vote-button"> <%= button_to "⤵", questions_vote_path, params: {question_id: question.id, vote_direction: -1}%></div>
-  </h5>
-<ul class = "answer-list">
-  <% question.answers.each do |answer| %>
-    <div class = 'specific-answer'>
-      score: <span class= 'point-value'><%= answer.total_points %></span>
-      <div class = "vote-button"> <%= button_to "⤴", answers_vote_path, params: {answer_id: answer.id, vote_direction: 1}%></div>
-      <div class = "vote-button"> <%= button_to "⤵", answers_vote_path, params: {answer_id: answer.id, vote_direction: -1}%></div>
-      <div><%= answer.body %></div>
-      <div><%= answer.created_at %></div>
-    </div>
-  <% end %>
-  </ul>
-</div>
-
+ </h5>
 
   <% end %>
 </ul>
