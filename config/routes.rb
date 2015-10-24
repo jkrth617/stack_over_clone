@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/questions/vote' => 'questions#vote'
   post '/answers/vote' => 'answers#vote'
   resources :votes, only: [:new, :create], path: '/:obj_type/:obj_id/votes'
-  resources :tag, only: [:index, :show]
+  resources :tags, only: [:index, :show]
 
   get 'register' => 'users#new', as: 'register'
   post 'register' => 'users#create'
