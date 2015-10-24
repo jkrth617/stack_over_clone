@@ -1,3 +1,4 @@
+ruby '2.2.3'
 source 'https://rubygems.org'
 
 
@@ -19,7 +20,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
-
+gem 'rails_12factor', group: :production
 # Use Unicorn as the app server
 # gem 'unicorn'
 
