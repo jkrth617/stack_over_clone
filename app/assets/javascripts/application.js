@@ -83,18 +83,24 @@ $(document).on('ready', function(){
     video.load();
   }
 
-  $('.make-answer-key').on('click', function(e){
-    e.preventDefault();
-      // debugger;
-    var $answerFormContainer = $(this).prev().find('#answer-form-container')
-    var myUrl = this.href;
+  // $('.make-answer-key').on('click', function(e){
+  //   e.preventDefault();
+  //     // debugger;
+  //   var $answerFormContainer = $(this).prev().find('#answer-form-container')
+  //   var myUrl = this.href;
+
+  $('#link-container').on('click', function(event){
+    event.preventDefault();
+    var myUrl = $(this).find('a').attr('href');
+    $(this).hide()
     $.ajax({
       method: 'get',
       url: myUrl
     }).done(function(response){
-      $answerFormContainer.html(response)
-      debugger;
-    }).fail()
+      $('#answer-form-container').html(response);
+    }).fail(function(deffered){
+      alert("fail");
+    })
 
   })
 
