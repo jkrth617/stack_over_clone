@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-
   def show
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
@@ -35,5 +34,4 @@ class AnswersController < ApplicationController
   def valid_params
     params.require(:answer).permit(:body, :user_id, :question_id)
   end
-
 end

@@ -39,10 +39,6 @@ class QuestionsController < ApplicationController
     @questions = Question.by_recency.limit(10)
   end
 
-  def recent
-    @questions = Question.by_recency.limit(10)
-  end
-
   def valid_params
     params.require(:question).permit(:title,:body)
   end
@@ -54,5 +50,4 @@ class QuestionsController < ApplicationController
   def make_tags
     tag_params[:description].split.map { |desc| Tag.where(description: desc).first_or_create }
   end
-
 end
