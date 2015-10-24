@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
 
   def vote_async_action(vote)
     if vote.save
-      vote.voteable.total_points
+      render plain: "#{(vote.voteable.total_points)}"
     else
       status 400
     end
