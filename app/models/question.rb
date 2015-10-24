@@ -19,5 +19,4 @@ class Question < ActiveRecord::Base
   def last_respondent
     self.answers.last.user.username
   end
-
 end
