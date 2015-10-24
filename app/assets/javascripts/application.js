@@ -21,15 +21,15 @@ $(document).on('ready', function(){
     var $targetForm = $(this).find('form');
     var myData = $targetForm.serialize();
     var myType = $targetForm.attr('method');
-    var myUrl = $targetForm.attr('action');
+    var myUrl = "/questions/voters"//$targetForm.attr('action');
     $.ajax({
       url:myUrl,
       method:myType,
       data:myData
     }).done(function(response){
-      // debugger;
       $targetLocation.html(response)
     }).fail(function(deffered){
+      alert(deffered.status + "ERROR: I duno what you were doing but Stop It")
     })
   })
 
