@@ -2,9 +2,11 @@ class AnswersController < ApplicationController
   def new
     @question = Question.find(params[:question_id])
     @answer = Answer.new
-    if request.xhr?
+    # if request.xhr?
       render 'answers/new', layout: false
-    end
+    # else
+    #   render 'answers/new'
+    # end
   end
 
   def create

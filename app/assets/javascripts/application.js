@@ -85,10 +85,14 @@ $(document).on('ready', function(){
 
   $('.make-answer-key').on('click', function(e){
     e.preventDefault();
+      // debugger;
+    var $answerFormContainer = $(this).prev().find('#answer-form-container')
     var myUrl = this.href;
     $.ajax({
+      method: 'get',
       url: myUrl
     }).done(function(response){
+      $answerFormContainer.html(response)
       debugger;
     }).fail()
 
