@@ -13,3 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).on('ready', function(){
+
+  $('.master-container').on('click','.vote-button', function(e){
+    e.preventDefault();
+    var $targetLocation = $(this).parent().find('.point-value');
+    var $targetForm = $(this).find('form');
+    var myData = $targetForm.serialize();
+    var myType = $targetForm.attr('method');
+    var myUrl = "/questions/voters"//$targetForm.attr('action');
+    $.ajax({
+      url:myUrl,
+      method:myType,
+      data:myData
+    }).done(function(response){
+      $targetLocation.html(response)
+    }).fail(function(deffered){
+      alert(deffered.status + "ERROR: I duno what you were doing but Stop It")
+    })
+  })
+
+});
