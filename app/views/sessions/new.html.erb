@@ -1,6 +1,9 @@
+<%= flash[:errors] %>
+<div class="form">
 <h2>Login</h2>
-  <%= form_for :session, url: login_path do |f| %>
-  <%= f.text_field :username, placeholder: "Username" %>
-  <%= f.password_field :password, placeholder: "Password" %>
-  <%= f.submit "Log in" %>
+<%= form_for :session, url: login_path do |f| %>
+<label for="field1"><span>Username<span class="required">*</span></span><%= f.text_field :username, placeholder: "Username" %></label>
+<label for="field2"><span>Password<span class="required">*</span></span> <%= f.password_field :password, placeholder: "Password" %></label>
+<label><span>&nbsp;</span> <%= f.submit "Login" %></label>
 <% end %>
+</div>
