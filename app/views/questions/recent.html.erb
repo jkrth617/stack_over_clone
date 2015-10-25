@@ -1,8 +1,8 @@
-<h2> Recently Active Questions </h2>
-<ul>
-<% @questions.each do |question|%>
-   <li><%= link_to question.title, question_path(question) %></li>
-<!--    <ul>
+<ul class = "content">
+  <h2> Recently Active Questions </h2>
+  <% @questions.each do |question|%>
+   <li class = "question-header"><%= link_to question.title, question_path(question) %></li>
+<!--  <ul>
   <li>Last answered by <%#= question.last_respondent %> on <%#= question.updated_at %></li>
    </ul> -->
 <% end %>

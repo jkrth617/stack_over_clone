@@ -1,9 +1,11 @@
 <%= flash[:errors] %>
 <%= form_for @question do |f|%>
-  <%= f.text_field :title, placeholder: 'Title' %>
-  <%= f.text_area :body, placeholder: 'Body' %>
-    <%= fields_for @tag do |ff| %>
-      <%= ff.text_field :description, placeholder: 'Tags' %>
-    <% end %>
-  <%= f.submit %>
+<div class="form">
+<label for="field1"><span>Title <span class="required">*</span></span><%= f.text_field :title, placeholder: 'Title', :size=>"50" %></label>
+<label for="field2"><span>Content <span class="required">*</span></span><%= f.text_area :body, placeholder: 'Body', :rows => "10", :cols => "50" %></label>
+<label for= "field3"><span>Tags</span><%= fields_for @tag do |ff| %>
+      <%= ff.text_field :description, placeholder: 'Tags', :size=>"50" %>
+     <% end %></label>
+<label><span>&nbsp;</span> <%= f.submit %></label>
 <% end %>
+</div>
