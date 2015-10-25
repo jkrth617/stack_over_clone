@@ -67,6 +67,9 @@
 
 /* Body */
 
+h1, h2{
+  color:white;
+}
 
 body{
     font-family: 'Merriweather Sans', sans-serif;
