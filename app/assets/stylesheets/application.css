@@ -75,6 +75,10 @@ a{
   cursor: default;
 }
 
+#search-bar{
+  padding: 5px;
+}
+
 /* Body */
 
 h1, h2, h3{
