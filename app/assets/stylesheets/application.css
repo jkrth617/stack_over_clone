@@ -293,6 +293,12 @@ footer img {
   padding-left: -5px;
 }
 
+.form{
+
+  max-width: 100%;
+
+}
+
 
   /* Option 1 - Display Inline */
   .nav li {

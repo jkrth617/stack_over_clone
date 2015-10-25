@@ -1,6 +1,6 @@
 <%= form_for @answer, url: question_answers_path(@question) do |f|%>
 <div class="form">
-<label for="field1"><span>Answer <span class="required">*</span></span><%= f.text_area :body, placeholder: 'Body', :rows => "10", :cols => "90" %></label>
+<label for="field1"><span>Answer <span class="required">*</span></span><%= f.text_area :body, placeholder: 'Body', :rows => "10", :cols => "40" %></label>
   <%= f.hidden_field :user_id, value: session[:user_id]%>
   <%= f.hidden_field :question_id, value: @question.id %>
 <label><%= f.submit "Answer!" %></label>
