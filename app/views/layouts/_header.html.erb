@@ -1,13 +1,13 @@
 <div class = "nav">
   <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Recent', recent_path %></li>
     <% if session[:user_id] %>
+      <li><%= link_to 'Shaq a Question!', new_question_path %></li>
       <li><%= link_to 'Log out', logout_path %></li>
-      <li><%= link_to 'Shaq  a  Question!', new_question_path %></li>
     <% else %>
       <li><%= link_to 'Log in', login_path %><li>
       <li><%= link_to 'Register', register_path %></li>
     <% end %>
-      <li><%= link_to 'Recent', recent_path %></li>
-      <li><%= link_to 'Home', root_path %></li>
   </ul>
 </div>
