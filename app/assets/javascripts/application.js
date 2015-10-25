@@ -43,6 +43,7 @@ $(document).on('ready', function(){
     }).done(function(response){
       $('#answer-form-container').html(response);
     }).fail(function(deffered){
+      debugger;
       alert("fail");
     })
   })
@@ -52,12 +53,21 @@ $(document).on('ready', function(){
     var myData = $(this).serialize();
     var myType = $(this).attr('method');
     var myUrl = $(this).attr('action');
-    // debugger;
     $.ajax({
       url: myUrl,
       data: myData,
-      mehtod: myType
-    }).done().fail()
+      method: myType
+    }).done(function(response){
+      $('.answer-list').append(response);
+      $('#answer-form-container').html("");
+      $('#link-container').show()
+    }).fail(function(deffered){
+      var message = " please fill in some information to you answer"
+      if (deffered.status == 403){
+        message = " you must log in"
+      }
+      alert(deffered.status + message)
+    })
 
   })
 

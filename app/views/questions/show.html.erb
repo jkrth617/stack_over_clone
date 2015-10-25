@@ -12,9 +12,7 @@
     </h5>
   <ul class = "answer-list">
   <% @answers.each do |answer| %>
-    <div class = 'specific-answer'>
-      <%= render partial: 'answers/single_answer', locals: {answer: answer}, layout: false %>
-    </div>
+    <%= render partial: 'answers/single_answer', locals: {answer: answer}, layout: false %>
   <% end %>
   </ul>
 
