@@ -1,10 +1,13 @@
+<ul class = "content" >
+
+<%= button_to "Got a question? Shaq one!", new_question_path, {method: "get"} %>
+
+<p></p>
 
 <% @questions.each do |q| %>
-  <div class = "question-header">
-    <%= q.total_points %>
-    <%= link_to q.title, question_path(q) %>
-  </div>
-  <div class = "question-content">
-    <%= q.body %>
-  </div>
+  <li class = "question-header"><%= q.total_points %> | <%= link_to q.title, question_path(q) %></li>
+  <ul>
+  <li class = "question-content"><%= q.body %></li>
+  </ul>
 <% end %>
+</ul>
