@@ -1,0 +1,4 @@
+  <div class = "vote-button"> <%= button_to "⤴", answers_vote_path, params: {answer_id: answer.id, vote_direction: 1}%></div>
+  <div class = "vote-button"> <%= button_to "⤵", answers_vote_path, params: {answer_id: answer.id, vote_direction: -1}%></div>
+  <div><%= answer.body %></div>
+  <div><%= answer.created_at %></div>

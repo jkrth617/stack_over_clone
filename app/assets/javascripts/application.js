@@ -52,7 +52,7 @@ $(document).on('ready', function(){
     var myData = $(this).serialize();
     var myType = $(this).attr('method');
     var myUrl = $(this).attr('action');
-    debugger;
+    // debugger;
     $.ajax({
       url: myUrl,
       data: myData,
