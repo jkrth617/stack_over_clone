@@ -1,10 +1,10 @@
 <div class="content">
-  <h4 class="tag-intro" >A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.</h4>
+  <h4 class="tag-intro">A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.</h4>
 <h4 class="tag-intro">Clicking a tag will bring you to a page with all the posts under that tag.</h4>
-<% if params[:search] %>
-  <h3 class="tag-intro">Search Results:</h3>
-  <% @tags.each do |tag| %>
-    <ul class="tag-link"> <%= link_to tag.description, tag_path(tag), :class => "tag-link" %></ul>
+<% if searched? %>
+  <h3 class="tag-intro">Search Results for <% @tags.each do |tag|%>
+    <%= tag.description %>
+    <%= tag.questions.title %></h3>
   <% end %>
 <% else %>
   <% @tags.each do |tag| %>
