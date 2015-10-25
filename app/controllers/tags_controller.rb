@@ -1,6 +1,11 @@
 class TagsController < ApplicationController
   def index
     @tags = Tag.all
+    if params[:search]
+      @tags = Tag.search(params[:search])
+    else
+      @tags = Tag.all.page(params[:page])
+    end
   end
 
   def show
