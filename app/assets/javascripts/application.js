@@ -21,7 +21,7 @@ $(document).on('ready', function(){
     var $targetForm = $(this).find('form');
     var myData = $targetForm.serialize();
     var myType = $targetForm.attr('method');
-    var myUrl = "/questions/voters"//$targetForm.attr('action');
+    var myUrl = $targetForm.attr('action');
     $.ajax({
       url:myUrl,
       method:myType,
@@ -33,57 +33,102 @@ $(document).on('ready', function(){
     })
   })
 
-$(document).ready(function() {
-  var stickyNavTop = $('.nav').offset().top;
+  $('#link-container').on('click', function(event){
+    event.preventDefault();
+    var myUrl = $(this).find('a').attr('href');
+    $(this).hide()
+    $.ajax({
+      method: 'get',
+      url: myUrl
+    }).done(function(response){
+      $('#answer-form-container').html(response);
+    }).fail(function(deffered){
+      debugger;
+      alert("fail");
+    })
+  })
 
-  var stickyNav = function(){
-  var scrollTop = $(window).scrollTop();
+  $('#answer-form-container').on('submit', '#new_answer', function(event){
+    event.preventDefault();
+    var myData = $(this).serialize();
+    var myType = $(this).attr('method');
+    var myUrl = $(this).attr('action');
+    $.ajax({
+      url: myUrl,
+      data: myData,
+      method: myType
+    }).done(function(response){
+      $('.answer-list').append(response);
+      $('#answer-form-container').html("");
+      $('#link-container').show()
+    }).fail(function(deffered){
+      var message = " please fill in some information to you answer"
+      if (deffered.status == 403){
+        message = " you must log in"
+      }
+      alert(deffered.status + message)
+    })
 
-  if (scrollTop > stickyNavTop) {
-      $('.nav').addClass('sticky');
-  } else {
-      $('.nav').removeClass('sticky');
-  }
+  })
+
+
+  $(document).ready(function() {
+    var stickyNavTop = $('.nav').offset().top;
+
+    var stickyNav = function(){
+    var scrollTop = $(window).scrollTop();
+
+    if (scrollTop > stickyNavTop) {
+        $('.nav').addClass('sticky');
+    } else {
+        $('.nav').removeClass('sticky');
+    }
+    };
+
+    stickyNav();
+
+    $(window).scroll(function() {
+        stickyNav();
+    });
+  });
+
+  var isMobile = {
+      Android: function() {
+          return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+          return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+          return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+          return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function() {
+          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
   };
 
-  stickyNav();
+  if(isMobile.any()) {
+    } else {
+            var sources = document.querySelectorAll('video#vid-div source');
+            var video = document.querySelector('video#vid-div');
+            for(var i = 0; i<sources.length;i++) { sources[i].setAttribute('src', sources[i].getAttribute('data-src'));
+        }
+    video.load();
+  }
 
-  $(window).scroll(function() {
-      stickyNav();
-  });
-  });
-
-
-var isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-};
+  // $('.make-answer-key').on('click', function(e){
+  //   e.preventDefault();
+  //     // debugger;
+  //   var $answerFormContainer = $(this).prev().find('#answer-form-container')
+  //   var myUrl = this.href;
 
 
-if(isMobile.any()) {
-  } else {
-          var sources = document.querySelectorAll('video#vid-div source');
-          var video = document.querySelector('video#vid-div');
-          for(var i = 0; i<sources.length;i++) { sources[i].setAttribute('src', sources[i].getAttribute('data-src'));
-      }
-  video.load();
-}
 
 
 });

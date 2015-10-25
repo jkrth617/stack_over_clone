@@ -1,5 +1,5 @@
 <%= flash[:errors] %>
-<%= form_for @answer, url: question_answers_path(@question) do |f|%>
+<%= form_for @answer, url: question_answers_path(@question), class: 'new-answer-form' do |f|%>
  <p><%= f.text_area :body, placeholder: 'Answer please', cols: '90', rows: '10' %></p>
   <%= f.hidden_field :user_id, value: session[:user_id]%>
   <%= f.hidden_field :question_id, value: @question.id %>
