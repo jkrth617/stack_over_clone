@@ -6,6 +6,4 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :email, :password_digest
   validates_uniqueness_of :email, :username
-
-  #validates :email, format: { }
 end
