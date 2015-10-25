@@ -33,6 +33,35 @@ $(document).on('ready', function(){
     })
   })
 
+  $('#link-container').on('click', function(event){
+    event.preventDefault();
+    var myUrl = $(this).find('a').attr('href');
+    $(this).hide()
+    $.ajax({
+      method: 'get',
+      url: myUrl
+    }).done(function(response){
+      $('#answer-form-container').html(response);
+    }).fail(function(deffered){
+      alert("fail");
+    })
+  })
+
+  $('#answer-form-container').on('submit', '#new_answer', function(event){
+    event.preventDefault();
+    var myData = $(this).serialize();
+    var myType = $(this).attr('method');
+    var myUrl = $(this).attr('action');
+    debugger;
+    $.ajax({
+      url: myUrl,
+      data: myData,
+      mehtod: myType
+    }).done().fail()
+
+  })
+
+
   $(document).ready(function() {
     var stickyNavTop = $('.nav').offset().top;
 
@@ -89,20 +118,7 @@ $(document).on('ready', function(){
   //   var $answerFormContainer = $(this).prev().find('#answer-form-container')
   //   var myUrl = this.href;
 
-  $('#link-container').on('click', function(event){
-    event.preventDefault();
-    var myUrl = $(this).find('a').attr('href');
-    $(this).hide()
-    $.ajax({
-      method: 'get',
-      url: myUrl
-    }).done(function(response){
-      $('#answer-form-container').html(response);
-    }).fail(function(deffered){
-      alert("fail");
-    })
 
-  })
 
 
 });
