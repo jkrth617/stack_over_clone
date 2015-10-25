@@ -14,16 +14,24 @@
  *= require_self
  */
 
+/* Vote */
+
  .vote-button{
   display: inline-block;
  }
 
-#banner {
+/* Banner */
+
+#banner{
   text-align: center;
+}
+
+#banner img{
   max-width: 100%;
-  width: auto;
   height: auto;
 }
+
+/* Nav */
 
 .nav ul {
   list-style: none;
@@ -57,17 +65,25 @@
   cursor: default;
 }
 
+/* Body */
+
+
 body{
     font-family: 'Merriweather Sans', sans-serif;
     background: url(/imgs/court.jpg) no-repeat top center fixed;
     background-size: cover;
 }
 
+/* Content */
+
 .content {
     padding: 50px;
     border: 1px solid black;
     box-sizing: border-box;
 }
+
+/* Questions */
+
 
 .question-header{
   list-style: none outside none;
@@ -83,6 +99,8 @@ body{
 .question-content {
   color: #FFFF00;
 }
+
+/* Video */
 
 .header-unit {
   height: 200px;
@@ -114,6 +132,9 @@ video.fillWidth {
     transform: translateY(-50%);
 }
 
+
+/* Responsive */
+
 @media screen and (min-width: 600px) {
   .nav li {
     width: 120px;
@@ -129,17 +150,4 @@ video.fillWidth {
     margin-right: -4px;
   }
 
-  /* Options 2 - Float
-  .nav li {
-    float: left;
-  }
-  .nav ul {
-    overflow: auto;
-    width: 600px;
-    margin: 0 auto;
-  }
-  .nav {
-    background-color: #444;
-  }
-  */
 }
