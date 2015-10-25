@@ -90,6 +90,10 @@ body{
     list-style: none;
 }
 
+.content a:hover {
+  color:#D2D7D3;
+}
+
 <style type="text/css">
 
 .form {
@@ -194,6 +198,26 @@ body{
 .tag-intro {
   color:#fff;
 }
+
+
+/* User */
+
+.user-profile{
+  color:white;
+}
+
+
+.user-profile a {
+  color:white;
+  text-decoration: none;
+}
+
+.profile-answer {
+  padding: 5px;
+  color: yellow;
+  border: solid black;
+}
+
 
 /* Video */
 

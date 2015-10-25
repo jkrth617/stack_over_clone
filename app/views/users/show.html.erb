@@ -1,23 +1,22 @@
-<h2> <%= @user.username %>'s Profile </h2>
-  <ul class = "user_profile" >
-    <h3> This user asked <%= @user.questions.count %> questions</h2>
-      <% @user.questions.each do |question| %>
-        <li><%= link_to question.title, question_path(question) %></li>
-      <% end %>
+<div class = "content">
+  <h2> <%= @user.username %>'s Profile </h2>
+    <ul class = "user-profile" >
+      <div li class = "profile-questions"><h3><%= @user.username %> has asked <%= @user.questions.count %> questions</h3></li>
+        <ul>
+          <% @user.questions.each do |question| %>
+          <li><%= link_to question.title, question_path(question) %></li>
+          <% end %>
+        </ul>
 
-    <h3> This user answered <%= @user.answers.count %> Answers</h2>
-      <% @user.answers.each do |answer| %>
-        <li>
-          <%= link_to answer.question.title, question_path(answer.question) %>
-          <ul>
-            <li><%= answer.body %></li>
-          </ul>
+      <div li class = "profile-questions"><h3> <%= @user.username %>  answered <%= @user.answers.count %> Answers</h3>
+        <% @user.answers.each do |answer| %></li>
+        <ul>
+          <li><%= link_to answer.question.title, question_path(answer.question) %></li>
+            <ul>
+              <li class = "profile-answer"><%= answer.body %></li>
+            </ul>
         </li>
-      <% end %>
-
-      <%= button_to "Edit", edit_user_path(@user), {method: "get"} %>
-
-      <%= button_to "Return", questions_path, {method: "get"} %>
-
-  </ul>
+        <% end %>
+      </ul>
+    </ul>
 </div>
