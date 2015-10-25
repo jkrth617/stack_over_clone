@@ -86,6 +86,12 @@ body{
     box-sizing: border-box;
     background: url(/imgs/court.jpg) no-repeat top center fixed;
     background-size: cover;
+    margin: 10px;
+    list-style: none;
+}
+
+.content a:hover {
+  color:#D2D7D3;
 }
 
 <style type="text/css">
@@ -146,12 +152,18 @@ body{
 .question-header a {
   color:white;
   text-decoration: none;
+  padding:10px;
 }
 
 .question-content {
   color: #FFFF00;
   padding: 10px;
   list-style-type: none;
+}
+
+
+.button{
+  padding-top: 10px;
 }
 
 /* answers */
@@ -186,6 +198,25 @@ body{
 .tag-intro {
   color:#fff;
 }
+
+
+/* User */
+
+.user-profile{
+  color:white;
+}
+
+
+.user-profile a {
+  color:white;
+  text-decoration: none;
+}
+
+.profile-answer {
+  padding: 5px;
+  color: yellow;
+  }
+
 
 /* Video */
 
@@ -290,6 +321,12 @@ footer img {
   height: 400px;
   z-index: 1;
   padding-left: -5px;
+}
+
+.form{
+
+  max-width: 100%;
+
 }
 
 
