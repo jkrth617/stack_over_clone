@@ -1,5 +1,9 @@
 <div class = "nav">
   <ul>
+    <li id = "search-bar">
+    <%= form_tag tags_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Tags" %>
+    <% end %> </li>
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'Tags', tags_path %></li>
     <li><%= link_to 'Recent', recent_path %></li>
