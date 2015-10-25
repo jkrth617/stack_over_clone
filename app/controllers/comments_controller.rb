@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
   end
 
   def valid_params
-    params.require(:comment).permit(:body, :answer_id)#:user_id,
+    params.require(:comment).permit(:body,:user_id, :answer_id)
   end
 
 end
