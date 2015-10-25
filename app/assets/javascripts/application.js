@@ -99,7 +99,6 @@ $(document).on('ready', function(){
       method: myType}).done(function(response){
         $appendTarget.append(response);
         $form.html("");
-        debugger;
         $container.find('#link-comment-container').show()
       }).fail(function(deffered){
         var message = " please fill in some information to you answer"
