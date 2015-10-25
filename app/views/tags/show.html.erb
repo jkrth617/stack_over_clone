@@ -1,0 +1,12 @@
+<h4>Tag: <%= @tag.description %> </h4>
+
+<ul>
+  <% @tag.questions.each do |question| %>
+    <%= link_to question.title, question_path(question) %>
+  <h5>
+    <%= question.body %><br>
+    score: <span class= 'point-value'><%= question.total_points %></span>
+ </h5>
+
+  <% end %>
+</ul>
