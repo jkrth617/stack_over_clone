@@ -87,6 +87,7 @@ body{
     background: url(/imgs/court.jpg) no-repeat top center fixed;
     background-size: cover;
     margin: 10px;
+    list-style: none;
 }
 
 <style type="text/css">
@@ -147,12 +148,18 @@ body{
 .question-header a {
   color:white;
   text-decoration: none;
+  padding:10px;
 }
 
 .question-content {
   color: #FFFF00;
   padding: 10px;
   list-style-type: none;
+}
+
+
+.button{
+  padding-top: 10px;
 }
 
 /* answers */
