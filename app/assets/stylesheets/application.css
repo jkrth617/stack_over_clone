@@ -148,9 +148,6 @@ video.fillWidth {
     font-size: 1.4em;
   }
 
-  #video-container {
-  position: absolute;
-}
 
   /* Option 1 - Display Inline */
   .nav li {
