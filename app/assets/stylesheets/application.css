@@ -86,6 +86,7 @@ body{
     box-sizing: border-box;
     background: url(/imgs/court.jpg) no-repeat top center fixed;
     background-size: cover;
+    margin: 10px;
 }
 
 <style type="text/css">
