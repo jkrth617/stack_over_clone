@@ -201,7 +201,7 @@ video {
 video.fillWidth {
     position: absolute;
     width: 100%;
-    top: 50%;
+    top: 70%;
     transform: translateY(-50%);
 }
 
