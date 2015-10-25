@@ -20,11 +20,14 @@
 
 #banner {
   text-align: center;
+  max-width: 100%;
+  width: auto;
+  height: auto;
 }
 
 .nav ul {
   list-style: none;
-  background-color: #444;
+  background-color: black;
   text-align: center;
   padding: 0;
   margin: 0;
@@ -56,7 +59,8 @@
 
 body{
     font-family: 'Merriweather Sans', sans-serif;
-    background-color: #F0FF0D
+    background: url(/imgs/court.jpg) no-repeat top center fixed;
+    background-size: cover;
 }
 
 .content {
@@ -68,6 +72,46 @@ body{
 .question-header{
   list-style: none outside none;
   padding: 10px;
+  color:white;
+}
+
+.question-header a {
+  color:white;
+  text-decoration: none;
+}
+
+.question-content {
+  color: #FFFF00;
+}
+
+.header-unit {
+  height: 200px;
+  border: 2px solid #000;
+  border-right:none;
+  border-left: none;
+  position: relative;
+  padding: 20px;
+}
+#video-container {
+  position: absolute;
+}
+#video-container {
+  top:0%;
+  left:0%;
+  height:100%;
+  width:100%;
+  overflow: hidden;
+}
+video {
+  position:absolute;
+  z-index:0;
+}
+
+video.fillWidth {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 @media screen and (min-width: 600px) {
