@@ -239,6 +239,17 @@ video.fillWidth {
   height: auto;
 }
 
+
+/*footer*/
+
+footer{
+text-align: center;
+}
+
+footer img {
+  max-width: 100%;
+}
+
 /* Responsive */
 
 @media screen and (min-width: 600px) {
