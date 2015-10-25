@@ -47,6 +47,16 @@
   border-bottom: 1px solid #888;
 }
 
+a{
+  text-decoration: none;
+  color: #0099FF;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
 .nav a {
   text-decoration: none;
   color: #fff;
@@ -66,7 +76,7 @@
 
 /* Body */
 
-h1, h2{
+h1, h2, h3{
   color:white;
 }
 

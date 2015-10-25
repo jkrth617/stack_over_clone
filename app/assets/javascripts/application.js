@@ -43,8 +43,7 @@ $(document).on('ready', function(){
     }).done(function(response){
       $('#answer-form-container').html(response);
     }).fail(function(deffered){
-      debugger;
-      alert("fail");
+      alert("something went wrong");
     })
   })
 
@@ -71,8 +70,47 @@ $(document).on('ready', function(){
 
   })
 
+  $('.answer-list').on('click', '#link-comment-container', function(e){
+    e.preventDefault();
+    $(this).hide();
+    var $formLocation = $(this).parent().find('#comment-form-container');
+    var myUrl = $(this).find('a').attr('href');
+    $.ajax({
+      method: 'get',
+      url: myUrl
+    }).done(function(response){
+      $formLocation.html(response);
+    }).fail(function(deffered){
+      alert("something went wrong");
+    })
+  })
 
-  $(document).ready(function() {
+  $('.answer-list').on('submit','#new_comment', function(e){
+    e.preventDefault()
+    var $form = $(this);
+    var $container = $form.parent().parent();
+    var $appendTarget = $container.find('.comment-list');
+    var myData = $form.serialize();
+    var myType = $form.attr('method');
+    var myUrl = $form.attr('action');
+    $.ajax({
+      url: myUrl,
+      data: myData,
+      method: myType}).done(function(response){
+        $appendTarget.append(response);
+        $form.html("");
+        $container.find('#link-comment-container').show()
+      }).fail(function(deffered){
+        var message = " please fill in some information to you answer"
+        if (deffered.status == 403){
+          message = " you must log in"
+        }
+        alert(deffered.status + message)
+      })
+  })
+
+
+  // $(document).ready(function() {
     var stickyNavTop = $('.nav').offset().top;
 
     var stickyNav = function(){
@@ -90,7 +128,7 @@ $(document).on('ready', function(){
     $(window).scroll(function() {
         stickyNav();
     });
-  });
+  // });
 
   var isMobile = {
       Android: function() {
@@ -121,15 +159,6 @@ $(document).on('ready', function(){
         }
     video.load();
   }
-
-  // $('.make-answer-key').on('click', function(e){
-  //   e.preventDefault();
-  //     // debugger;
-  //   var $answerFormContainer = $(this).prev().find('#answer-form-container')
-  //   var myUrl = this.href;
-
-
-
 
 });
 

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :questions, except: [:destroy] do
     resources :answers, except: [:show]
   end
+  resources :answers do
+    resources :comments, only: [:new, :create]
+  end
+
   post '/questions/vote' => 'questions#vote'
   post '/answers/vote' => 'answers#vote'
   resources :votes, only: [:new, :create], path: '/:obj_type/:obj_id/votes'

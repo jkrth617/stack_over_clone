@@ -1,6 +1,18 @@
 <div class = 'specific-answer'>
+  <span class = "point-value"><%= answer.total_points %> | </span>
   <div class = "vote-button"> <%= button_to "⤴", answers_vote_path, params: {answer_id: answer.id, vote_direction: 1}%></div>
   <div class = "vote-button"> <%= button_to "⤵", answers_vote_path, params: {answer_id: answer.id, vote_direction: -1}%></div>
   <div><%= answer.body %></div>
   <div><%= answer.created_at %></div>
+
+  <ul class = "comment-list">
+  <% answer.comments.each do |comment| %>
+    <%= render partial: 'comments/comment', locals: {comment: comment}, layout: false %>
+  <% end %>
+  </ul>
+  <div id = 'link-comment-container'>
+  <%= link_to "Comment on this Answer", new_answer_comment_path(answer), class: 'make-comment-key' %>
+  </div>
+  <div id = 'comment-form-container'></div>
+
 </div>

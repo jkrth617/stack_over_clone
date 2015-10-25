@@ -43,8 +43,8 @@ class AnswersController < ApplicationController
         question.answers << new_a
         redirect_to question
       else
-        flash[:errors] = new_q.errors.messages.values.join("\n")
-        redirect_to new_question_answer_path(question)
+        flash[:errors] = new_a.errors.messages.values.join("\n")
+        redirect_to new_question_answer_path
       end
     else
       flash[:errors] = "You must be logged in to add answers."
