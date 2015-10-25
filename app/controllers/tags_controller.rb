@@ -4,7 +4,7 @@ class TagsController < ApplicationController
     if params[:search]
       @tags = Tag.search(params[:search])
     else
-      @tags = Tag.all.page(params[:page])
+      @tags = Tag.all
     end
   end
 
