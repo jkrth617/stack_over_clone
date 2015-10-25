@@ -1,11 +1,13 @@
 <div class = "content" >
 
-  <h1><%= @question.title%></h1><br>
+<h1><%= @question.title%></h1><br>
   <h3>Tags:</h3><% @question.tags.each do |tag|%>
  <span class="tag-intro"><%= link_to tag.description, tag_path(tag) %></span>
 <% end %>
 
-<h2><%= @question.answers.count %> Answers</h2>
+<h2><%= @question.body %></h2>
+
+<h3><%= @question.answers.count %> Answers</h3>
 
   <div class ='master-container'>
     <h3>
