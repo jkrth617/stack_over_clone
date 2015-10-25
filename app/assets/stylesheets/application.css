@@ -66,11 +66,7 @@ body{
 
 .question-header{
   list-style: none outside none;
-}
-
-
-.question-content{
-
+  padding: 10px;
 }
 
 @media screen and (min-width: 600px) {
