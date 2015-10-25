@@ -107,6 +107,22 @@ body{
   color: #FFFF00;
 }
 
+/* answers */
+
+
+.answer-list {
+  color: white;
+}
+
+.specific-answer{
+  padding: 10px;
+  border: solid black;
+}
+
+#points-box{
+  padding: 10px;
+}
+
 /* Video */
 
 .header-unit {

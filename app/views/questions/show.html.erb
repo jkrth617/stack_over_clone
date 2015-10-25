@@ -1,3 +1,4 @@
+<div class = "content" >
 
 <h1><%= @question.title%>
 
@@ -12,15 +13,20 @@
 
   <ul class = "answer-list">
   <% @question.answers.each do |answer| %>
-    <div class = 'specific-answer'>
-      score: <span class= 'point-value'><%= answer.total_points %></span>
-      <div class = "vote-button"> <%= button_to "⤴", answers_vote_path, params: {answer_id: answer.id, vote_direction: 1}%></div>
-      <div class = "vote-button"> <%= button_to "⤵", answers_vote_path, params: {answer_id: answer.id, vote_direction: -1}%></div>
-      <div><%= answer.body %></div>
-      <div><%= answer.created_at %></div>
-    </div>
+    <li class = 'specific-answer'><%= answer.body %> answered at <%= answer.created_at %></li>
+      <ul>
+        <li id = "points-box">
+        score: <span class= 'point-value'><%= answer.total_points %></span>
+        <div class = "vote-button"> <%= button_to "⤴", answers_vote_path, params: {answer_id: answer.id, vote_direction: 1}%></div>
+        <div class = "vote-button"> <%= button_to "⤵", answers_vote_path, params: {answer_id: answer.id, vote_direction: -1}%></div>
+      </li>
+  </ul>
+
   <% end %>
+
   </ul>
 </div>
 
 <%= button_to "Have an Answer?", new_question_answer_path(@question), {method: "get"} %>
+
+</div>
