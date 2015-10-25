@@ -70,16 +70,20 @@
 
 body{
     font-family: 'Merriweather Sans', sans-serif;
-    background: url(/imgs/court.jpg) no-repeat top center fixed;
+    background-color: yellow;
+    background: url(/imgs/bball-background.jpg) no-repeat top center fixed;
     background-size: cover;
 }
 
 /* Content */
 
 .content {
+    border-radius: 25px;
     padding: 50px;
     border: 1px solid black;
     box-sizing: border-box;
+    background: url(/imgs/court.jpg) no-repeat top center fixed;
+    background-size: cover;
 }
 
 /* Questions */
@@ -143,6 +147,10 @@ video.fillWidth {
     line-height: 50px;
     font-size: 1.4em;
   }
+
+  #video-container {
+  position: absolute;
+}
 
   /* Option 1 - Display Inline */
   .nav li {
