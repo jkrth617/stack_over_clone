@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-50.times do
+10.times do
   name = Faker::Name.first_name
   email = Faker::Internet.email(name)
 
@@ -16,7 +16,7 @@ user_count = User.all.count
 user = User.find(rand(user_count)+1)
 Question.create(user_id: user, title: "is jason too into toilets???", body: "I mean the kid does seem a little weird about the whole thing....")
 Answer.create(body: "seems like it", user_id: user, question_id: 1)
-count = 1000
+count = 50
 puts "seeding #{count} questions."
 count.times do
   user = User.find(rand(user_count)+1)
