@@ -161,6 +161,7 @@ body{
 .question-content {
   color: #FFFF00;
   padding: 10px;
+  list-style-type: none;
 }
 
 /* answers */
@@ -177,6 +178,23 @@ body{
 
 #points-box{
   padding: 10px;
+}
+
+/* tags */
+
+.tag-link {
+  text-decoration: none;
+  list-style-type: none;
+  display:inline;
+  color: #fff;
+}
+
+.tag-link:hover {
+  color:#D2D7D3;
+}
+
+.tag-intro {
+  color:#fff;
 }
 
 /* Video */
