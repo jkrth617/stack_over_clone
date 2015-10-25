@@ -4,11 +4,7 @@ class Tag < ActiveRecord::Base
   validates_presence_of :description
 
   def self.search(search)
-    if search
-      where 'name LIKE ?', "%#{search}%"
-    else
-      #something 
-    end
+    Tag.where 'description LIKE ?', "%#{search}%"
   end
 end
 
