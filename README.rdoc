@@ -1,28 +1,31 @@
-== README
+## ToiletOverflow
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![gorilla](imgs/toilet_overflow_logo.png)
 
-Things you may want to cover:
+###Introduction
 
-* Ruby version
+Welcome to our team! The members are Ersan U, Jake R, David T, and Jason W! We are delighted to introduce you to our attempt to replicate the popular website, StackOverflow.
 
-* System dependencies
+###MVP Goals
 
-* Configuration
+All Users should be able to read a question.
 
-* Database creation
+All Users should be able to register or login an account
 
-* Database initialization
+Registered Users should be able to post a question or answer a question
 
-* How to run the test suite
+###How We Did It
 
-* Services (job queues, cache servers, search engines, etc.)
+[Trello Account](TBD)
 
-* Deployment instructions
+[Slack Discussion](TBD)
 
-* ...
+As a team, we chose to pick up the tasks that either interested us or challenged us. If any of us ran into difficulty, we usually paired off or collaborated as a group to figure out the best way to tackle the situation. As you can see above, we talked out user stories, schemas, and wireframes before working together on the migrations and models together.
 
+###Technologies Used
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Ruby on Rails, Javascript. TBD
+
+###Learning Experience
+
+TBD
