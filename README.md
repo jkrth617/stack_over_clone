@@ -1,6 +1,6 @@
 ## ShaqOverflow
 
-![shaq](imgs/shaq_footer.png)
+![shaq](public/imgs/shaq_footer.png)
 
 ###Introduction
 
@@ -16,7 +16,7 @@ Registered Users should be able to post a question or answer a question
 
 ###How We Did It
 
-![Initial Schema](imgs/schema_overflow.png)
+![Initial Schema](public/imgs/schema_overflow.png)
 
 Note: This was an initial schema before we performed a stretch goal and added comments.
 
