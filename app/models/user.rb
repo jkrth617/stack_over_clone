@@ -3,10 +3,11 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
   has_many :votes
-
-  validates_presence_of :username, :email, :password_digest, unless: -> { from_omniauth? }
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates_presence_of :username, :email, :password_digest
   validates_uniqueness_of :email, :username
-  #validates :email, format: { }
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -16,8 +17,8 @@ class User < ActiveRecord::Base
       user.password = SecureRandom.urlsafe_base64
     end
   end
-  
+
   def from_omniauth?
-    provider && uid 
+    provider && uid
   end
 end
