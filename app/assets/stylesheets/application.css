@@ -230,11 +230,17 @@ body{
 .profile-answer{
   padding: 5px;
   color: yellow;
-  }
+}
 
 #profile-picture img{
   min-width: 0%;
   max-width: 50%;
+}
+
+.username {
+  font-size:12px;
+  list-style-type:none;
+  color:#ecf0f1;
 }
 
 /* Video */
