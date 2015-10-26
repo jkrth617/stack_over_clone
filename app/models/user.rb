@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
+      user.username = auth["info"]["name"]
+      user.email = Faker::Internet.email
+      user.password = SecureRandom.urlsafe_base64
     end
   end
   
