@@ -2,11 +2,7 @@
   <h4 class="tag-intro">Tag: <%= @tag.description %> </h4>
 
   <% @tag.questions.each do |question| %>
-    <li class="question-header"> <%= link_to question.title, question_path(question) %>
-  <h5>
-    <li class="question-content"<%= question.body %></li><br>
-    score: <span class= 'point-value'><%= question.total_points %></span>
- </h5>
- <li>
+    <li class="question-header"> <%= link_to question.title, question_path(question) %> </li>
+    <li class="question-content"><%= question.body %></li>
   <% end %>
 </div>
