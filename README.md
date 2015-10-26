@@ -1,6 +1,6 @@
 ## ShaqOverflow
 
-![shaq](imgs/shaq.png)
+![shaq](imgs/shaq_footer.png)
 
 ###Introduction
 
