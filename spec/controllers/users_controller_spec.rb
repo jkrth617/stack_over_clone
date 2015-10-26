@@ -9,9 +9,18 @@ RSpec.describe UsersController, type: :controller do
   end
 
   context "#create" do
-    let(:user) { FactoryGirl.create :user }
+    let(:user) { FactoryGirl.build :user }
     it 'redirects back to root path after user creation' do
-      post :create, {:user => FactoryGirl.attributes_for(:user)}
+      #wrote this out longwinded was getting password_digest in params when passing in "params"
+      #instead of password
+      post :create, user: { username: user.username, password: user.password, email: user.email }
+      expect(response).to redirect_to root_path
+    end
+    let(:user) { FactoryGirl.build :user }
+    it 'user exists after create attempt' do
+      expect {
+        post :create, user: { username: user.username, password: user.password, email: user.email }
+      }.to change{ User.count }.by(1)
       expect(response).to redirect_to root_path
     end
   end

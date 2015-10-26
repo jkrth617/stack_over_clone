@@ -6,11 +6,11 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:username) }
     it { should validate_presence_of :password_digest }
     it { should validate_presence_of :email }
-    it { should allow_value('shadi@devbootcamp.com').for(:email) }
+    it { should allow_value('dude@example.com').for(:email) }
   end
 
   context "#attributes" do
-    let(:user) { FactoryGirl.build :user, :email => "shadi@dev.com" }
+    let(:user) { FactoryGirl.build :user, :email => "dude@example.com" }
     it "it should save username" do
       user.save
       expect(user.reload.username).should_not be_nil
