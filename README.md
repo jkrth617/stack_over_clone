@@ -1,6 +1,6 @@
-## ToiletOverflow
+## ShaqOverflow
 
-![gorilla](imgs/toilet_overflow_logo.png)
+![shaq](imgs/shaq.png)
 
 ###Introduction
 
