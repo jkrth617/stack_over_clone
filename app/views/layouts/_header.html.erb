@@ -8,7 +8,7 @@
     <li><%= link_to 'Tags', tags_path %></li>
     <li><%= link_to 'Recent', recent_path %></li>
   <% if session[:user_id] %>
-    <li><%= link_to 'Profile', user_path(current_user) %></li>
+    <li><%= link_to 'Profile', profile_path(current_user) %></li>
     <li><%= link_to 'Shaq a Question!', new_question_path %></li>
     <li><%= link_to 'Log out', logout_path %></li>
   <% else %>
