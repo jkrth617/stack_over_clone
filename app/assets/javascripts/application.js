@@ -29,7 +29,7 @@ $(document).on('ready', function(){
     }).done(function(response){
       $targetLocation.html(response)
     }).fail(function(deffered){
-      alert(deffered.status + "ERROR: I duno what you were doing but Stop It")
+      // alert(deffered.status + "ERROR: I duno what you were doing but Stop It")
     })
   })
 
