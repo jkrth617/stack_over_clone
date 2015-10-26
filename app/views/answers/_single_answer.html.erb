@@ -3,6 +3,7 @@
   <div class = "vote-button"> <%= button_to "⤴", answers_vote_path, params: {answer_id: answer.id, vote_direction: 1}%></div>
   <div class = "vote-button"> <%= button_to "⤵", answers_vote_path, params: {answer_id: answer.id, vote_direction: -1}%></div>
   <div><%= answer.body %></div>
+  <h5>answered by <%= link_to answer.user.username, user_path(answer.user) %></h5>
   <div><%= answer.created_at %></div>
 
   <ul class = "comment-list">
