@@ -232,6 +232,9 @@ body{
   color: yellow;
   }
 
+#profile-picture img{
+  max-width: 100%;
+}
 
 /* Video */
 
