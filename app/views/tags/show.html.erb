@@ -4,5 +4,6 @@
   <% @tag.questions.each do |question| %>
     <li class="question-header"> <%= link_to question.title, question_path(question) %> </li>
     <li class="question-content"><%= question.body %></li>
+    <li class="username">asked by: <%= link_to question.user.username, user_path(question.user) %></li>
   <% end %>
 </div>

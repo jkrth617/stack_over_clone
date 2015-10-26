@@ -4,6 +4,8 @@
 
 <h2><%= @question.body %></h2>
 
+<h3 class="username">asked by <%= link_to @question.user.username, user_path(@question.user) %></h3>
+
 <h3><%= @question.answers.count %> Answers</h3>
   <h4>Tags:</h4><% @question.tags.each do |tag|%>
  <span class="tag-intro"><%= link_to tag.description, tag_path(tag) %></span>
