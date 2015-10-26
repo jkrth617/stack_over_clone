@@ -1,5 +1,8 @@
 <div class = "content">
   <h2> <%= @user.username %>'s Profile </h2>
+
+  <%= image_tag @user.avatar.url %>
+
     <ul class = "user-profile" >
       <div li class = "profile-questions"><h3><%= @user.username %> has asked <%= @user.questions.count %> questions</h3></li>
         <ul>
