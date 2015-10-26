@@ -226,11 +226,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
-<<<<<<< HEAD
   omniauth-twitter
-=======
   paperclip (~> 4.3)
->>>>>>> add paperclip gem
   pg
   pry-rails
   rails (= 4.2.4)
