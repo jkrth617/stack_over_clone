@@ -4,7 +4,7 @@
   <li class = "question-header"><%= q.total_points %> | <%= link_to q.title, question_path(q) %></li>
   <ul>
     <li class = "question-content"><%= q.body %></li>
-    <li class="question-content">asked by <%= q.user.username %></li>
+    <li class="username">asked by <%= q.user.username %></li>
   </ul>
 <% end %>
 
