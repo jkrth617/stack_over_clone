@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#login_form'
   post 'login' => 'sessions#login'
   get 'logout' => 'sessions#logout', as: 'logout'
-  get 'auth/:provider/callback' => 'sessions#create'
+  get '/auth/:provider/callback' => 'sessions#create'
 
   get '/recent' => 'questions#recent'
 end
