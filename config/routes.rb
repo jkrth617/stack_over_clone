@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'register' => 'users#new', as: 'register'
   post 'register' => 'users#create'
+  get 'profile' => 'sessions#show'
   get 'login' => 'sessions#login_form'
   post 'login' => 'sessions#login'
   get 'logout' => 'sessions#logout', as: 'logout'

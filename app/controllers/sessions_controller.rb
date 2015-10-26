@@ -2,7 +2,9 @@ class SessionsController < ApplicationController
   def login_form
     render 'sessions/new'
   end
-  
+  def show
+    @user = User.find(session[:user_id])
+  end
   def login
     user = User.find_by(username: session_params[:username])
     if user.try(:authenticate, session_params[:password])
