@@ -3,7 +3,8 @@
 <% @questions.each do |q| %>
   <li class = "question-header"><%= q.total_points %> | <%= link_to q.title, question_path(q) %></li>
   <ul>
-  <li class = "question-content"><%= q.body %></li>
+    <li class = "question-content"><%= q.body %></li>
+    <li class="username">asked by <%= link_to q.user.username, user_path(q.user.id) %></li>
   </ul>
 <% end %>
 

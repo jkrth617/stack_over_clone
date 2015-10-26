@@ -7,8 +7,9 @@
     <% tag.questions.each do |question| %>
       <h4 class="tag-intro"><%= link_to question.title, question_path(question) %></h4>
       <h4 class="tag-intro"><%= question.body %></h4>
-      <span class="tag-link">Tags:<% question.tags.each do |tag| %>
-        <%= link_to tag.description, tag_path(tag)%></span>
+      <h4 class="username">asked by: <%= link_to question.user.username, user_path(question.user) %></h4>
+      <h4 class="tag-intro">Tags:<% question.tags.each do |tag| %>
+         <span class="tag-link"><%= link_to tag.description, tag_path(tag)%></span>
     <% end %>
     <% end %>
   <% end %>
