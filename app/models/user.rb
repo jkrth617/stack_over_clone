@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
       user.username = auth["info"]["name"]
       user.email = Faker::Internet.email
       user.password = SecureRandom.urlsafe_base64
+      user.profile_image = auth["info"]["image"]
     end
   end
 

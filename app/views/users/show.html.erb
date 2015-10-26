@@ -1,7 +1,16 @@
 <div class = "content">
   <h2> <%= @user.username %>'s Profile </h2>
 
-  <%= image_tag @user.avatar.url %>
+<% if session[:user_id] = @user.id %>
+
+    <li>
+      <% if @user.profile_image %>
+      <%= image_tag @user.profile_image %>
+      <% elsif @user.avatar.file? %>
+      <%= image_tag @user.avatar.url %>
+      <% end %>
+    </li>
+    <% end %>
 
     <ul class = "user-profile" >
       <div li class = "profile-questions"><h3><%= @user.username %> has asked <%= @user.questions.count %> questions</h3></li>
