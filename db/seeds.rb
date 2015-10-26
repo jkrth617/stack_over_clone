@@ -22,7 +22,15 @@ count.times do
   user = User.find(rand(user_count)+1)
 
   q = Question.create(user_id: user.id, title: "How do you "+ Faker::Hacker.verb + " a " + Faker::Hacker.noun+"?",
-   body: "My " + Faker::Hacker.noun + " is " + Faker::Hacker.verb + ".\n" + Faker::Lorem.sentence(random_words_to_add = 1)+"\n")
+   body: Faker::Hacker.say_something_smart)
+  num = rand(100)
+
+  num.times do
+    random_user = rand(user_count) + 1
+    rand_val = rand(-1..1)
+    new_vote = Vote.new(voteable: q, user_id: random_user, value: rand_val)
+    q.votes << new_vote
+  end
 
   2.times do
     q.tags << Tag.create(description: Faker::Hacker.noun)
