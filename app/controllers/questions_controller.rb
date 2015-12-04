@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def index
+    statsd.increment('web.page_views')#counter for questions index
     @questions = Question.by_recency
   end
 
