@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  
-  statsd = Statsd.new#datadog variable
 
   protect_from_forgery with: :exception
   helper_method :current_user, :searched?

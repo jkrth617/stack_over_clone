@@ -1,7 +1,12 @@
 class QuestionsController < ApplicationController
+  
   def index
-    statsd.increment('web.page_views')#counter for questions index
-    @questions = Question.by_recency
+    @ddog = Statsd.new('localhost', 8125)
+    @ddog.increment('web.page_views')#counter for questions index
+    @ddog.time('database.query.time') do
+      @questions = Question.by_recency
+    end
+
   end
 
   def edit
@@ -25,6 +30,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @ddog = Statsd.new('localhost', 8125)
+    @ddog.increment('web.page_views')#counter for questions index
     @question = Question.find(params[:id])
     @answers = @question.answers
   end
