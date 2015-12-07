@@ -47,4 +47,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def increment_statsd
+    stats = Statsd.new
+    stats.increment('web.page_views')
+    return true
+  end
+
 end

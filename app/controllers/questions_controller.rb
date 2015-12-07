@@ -1,11 +1,17 @@
 class QuestionsController < ApplicationController
   
+  before_action :increment_statsd, only: [:index, :show]
+
   def index
-    @ddog = Statsd.new('localhost', 8125)
-    @ddog.increment('web.page_views')#counter for questions index
-    @ddog.time('database.query.time') do
+    # binding.pry
+    ddog = Statsd.new('localhost', 8125)
+    # ddog.increment('web.page_views')#counter for questions index
+    ddog.time('database.query.time') do
       @questions = Question.by_recency
     end
+    # @ddog.time('algorithm.run_time', :tags => ['algorithm:one']) do
+    #   @questions = Question.by_recency
+    # end
 
   end
 
@@ -31,7 +37,7 @@ class QuestionsController < ApplicationController
 
   def show
     # @ddog = session[:stats]
-    @ddog.increment('web.page_views')#counter for questions index
+    # @ddog.increment('web.page_views')#counter for questions index
     @question = Question.find(params[:id])
     @answers = @question.answers
   end
