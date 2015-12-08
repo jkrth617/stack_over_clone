@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-      require 'statsd'
+  require 'statsd'
 
   protect_from_forgery with: :exception
   helper_method :current_user, :searched?
@@ -48,9 +48,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def increment_statsd
-    stats = Statsd.new
-    stats.increment('web.page_views')
+  def increment_statsd(args={})
+    prefix = args.fetch("tag", "support")
+    descripter = args.fetch("decripter", "view_count")
+    tag = prefix+"."+descripter
+    stats = Statsd.new.increment(tag)
     return true
   end
 
