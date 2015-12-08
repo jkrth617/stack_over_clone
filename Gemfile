@@ -30,7 +30,7 @@ gem 'rails_12factor', group: :production
   gem 'faker'
 
   gem "paperclip", "~> 4.3"
-  gem "statsd-ruby"
+  # gem "statsd-ruby"
   gem 'dogstatsd-ruby'
 
 group :development, :test do
