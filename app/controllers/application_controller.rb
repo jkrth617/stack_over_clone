@@ -70,13 +70,12 @@ class ApplicationController < ActionController::Base
   end
 
   def load_test(page_specific = nil)
-    tags = ["page.home","page.page1","page.page2" ]
+    tags = ["page.index","page.page1","page.page2" ]
     30.times do 
       if page_specific
         histo_helper(tags.sample)
-      else
-        histo_helper
       end
+      histo_helper
     end
   end
 
