@@ -1,26 +1,8 @@
 class QuestionsController < ApplicationController
   
-  # before_action :increment_statsd, only: [:index, :show]
-
   def index
-    binding.pry
-    #ddog = Statsd.new#('localhost', 8125)
-    # ddog.count('web.page_views', 7)#, tags: ['test'])
-    # ddog.count('web.test_views', 2)#, tags: ['test'])
-    # ddog.increment('web.page_views')#counter for questions index
-    #start_time = Time.now
+    # binding.pry #used to stop flow and call the ddog helpers to create metrics
     @questions = Question.by_recency
-    #duration = Time.now - start_time
-    # binding.pry
-    #increment_statsd({minor_tag:"home"})
-    #ddog.histogram('rendering.duration', duration)#, tags=['tester'])
-    # ddog.time('database.query.time') do#, tags=["support"]
-    #   @questions = Question.by_recency
-    # end
-    # @ddog.time('algorithm.run_time', :tags => ['algorithm:one']) do
-    #   @questions = Question.by_recency
-    # end
-
   end
 
   def edit
@@ -44,9 +26,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    # @ddog = session[:stats]
-    # @ddog.increment('web.page_views')#counter for questions index
-    # increment_statsd({minor_tag:"show"})
     @question = Question.find(params[:id])
     @answers = @question.answers
   end
@@ -55,7 +34,6 @@ class QuestionsController < ApplicationController
   end
 
   def vote
-    # increment_statsd({minor_tag:"vote"})
     parent_question = Question.find_by(id: params[:question_id])
     make_vote(parent_question)
   end

@@ -53,7 +53,6 @@ class ApplicationController < ActionController::Base
     descripter = args.fetch(:minor_tag, "view_count")
     tag = prefix+"."+descripter
     stats = Statsd.new
-    # binding.pry
     stats.increment(tag)
     stats.increment("page.view_count")
     true
@@ -84,7 +83,7 @@ class ApplicationController < ActionController::Base
     start_time = Time.now
     fake_work
     duration = Time.now - start_time
-    stats.histogram(tag, duration)#, tags=['tester'])
+    stats.histogram(tag, duration)
   end
 
   def fake_work()
